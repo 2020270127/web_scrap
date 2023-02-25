@@ -68,8 +68,3 @@ def extract_jobs(term):
     print("Can't get jobs.")
 
 
-
-
-
-
-extract_jobs("react")

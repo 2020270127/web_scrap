@@ -23,9 +23,9 @@ def extract_remoteok_jobs(term):
       if location:
         location = location.string.strip()
 
-      link = job.find("div", class_="location")
+      link = job.find("a",itemprop="url").get('href')
       if link:
-        link = link.string.strip()
+        link = link#.string.strip()
 
       job_data = {
         'company': company,
@@ -43,6 +43,5 @@ def extract_remoteok_jobs(term):
     
   else:
     print("Can't get jobs.")
-
 
 

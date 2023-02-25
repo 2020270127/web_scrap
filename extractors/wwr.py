@@ -20,7 +20,7 @@ def extract_wwr_jobs(term):
         
       position = job.find("span",class_="title")
       if position:
-        position = position.string#.strip()
+        position = position.string
       
       location = job.find("span",class_="region company")
       if location:
@@ -31,9 +31,9 @@ def extract_wwr_jobs(term):
         link = link#.string.strip()
         
       job_data = {
-          'company': company,
-          'position': position,
-          'location' : location,  #list에 추가하기 전에 dict으로 집합 만들기
+          'company': company.replace(",",""),
+          'position': position.replace(",",""),
+          'location' : location.replace(",",""),  #list에 추가하기 전에 dict으로 집합 만들기
           'link' : f"https://weworkremotely.com{link}"
       }  
       results.append(job_data)
@@ -41,6 +41,4 @@ def extract_wwr_jobs(term):
         
   else:
     print("Can't get jobs.")
-
-
-
+print(extract_wwr_jobs("java"))
